@@ -4,6 +4,7 @@ class Location {
   double latitude;
   double longitude;
 
+//получаем текущее местоположение с помощью пакета geolocator.dart
   Future getCurrentLocation() async {
     try {
       //по примеру из документации пакета geolocator
