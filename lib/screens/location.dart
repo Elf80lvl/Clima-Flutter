@@ -6,6 +6,7 @@ class Location {
 
   Future getCurrentLocation() async {
     try {
+      //по примеру из документации пакета geolocator
       Position position = await Geolocator()
           .getCurrentPosition(desiredAccuracy: LocationAccuracy.low);
       //print(position);
