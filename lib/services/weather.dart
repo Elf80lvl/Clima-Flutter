@@ -2,9 +2,19 @@ import 'package:clima/screens/location.dart';
 import 'package:clima/services/networking.dart';
 
 const apiKey = 'aede869765fab32e916b3f86f78ba1be';
-const openWeatherMapURL = 'https://api.openweathermap.org/data/2.5/onecall';
+const openWeatherMapURL = 'https://api.openweathermap.org/data/2.5/weather';
 
 class WeatherModel {
+  //получаем погоду по запросу города
+  Future getCityWeather(cityName) async {
+    var url = '$openWeatherMapURL?q=$cityName&appid=$apiKey&units=metric';
+    NetworkHelper networkHelper = NetworkHelper(url);
+    var weatherData = await networkHelper.getData();
+    print(weatherData);
+    //print(weatherData['coord']);
+    return weatherData;
+  }
+
   //узнаем погоду по местоположению
   Future<dynamic> getLocationWeather() async {
     Location location = Location();
